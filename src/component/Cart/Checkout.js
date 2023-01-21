@@ -12,15 +12,17 @@ const Checkout = (props) => {
     validationSchema: Yup.object({
       Name: Yup.string()
         .max(15, "Must be 15 characters or less")
-        .required("Required"),
+        .required("this field is required"),
       street: Yup.string()
         .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .required("this field is required"),
       postalnumber: Yup.number()
         .required("this field is required")
         .positive("must be positive number")
         .max(100, "less than 100"),
-      email: Yup.string().email("Invalid email address").required("Required"),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("this field is required"),
     }),
     onSubmit: (values) => {
       props.onsubmit(values);
@@ -38,7 +40,7 @@ const Checkout = (props) => {
           value={formik.values.Name}
         />
         {formik.touched.Name && formik.errors.Name ? (
-          <div>{formik.errors.Name}</div>
+          <div style={{ color: "red" }}>{formik.errors.Name}</div>
         ) : null}
       </div>
       <div className={classes.control}>
@@ -51,7 +53,7 @@ const Checkout = (props) => {
           value={formik.values.street}
         />
         {formik.touched.street && formik.errors.street ? (
-          <div>{formik.errors.street}</div>
+          <div style={{ color: "red" }}>{formik.errors.street}</div>
         ) : null}
       </div>
       <div className={classes.control}>
@@ -64,7 +66,7 @@ const Checkout = (props) => {
           value={formik.values.postalnumber}
         />
         {formik.touched.postalnumber && formik.errors.postalnumber ? (
-          <div>{formik.errors.postalnumber}</div>
+          <div style={{ color: "red" }}>{formik.errors.postalnumber}</div>
         ) : null}
       </div>
       <div className={classes.control}>
@@ -77,7 +79,7 @@ const Checkout = (props) => {
           value={formik.values.email}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+          <div style={{ color: "red" }}>{formik.errors.email}</div>
         ) : null}
       </div>
       <div className={classes.actions}>
