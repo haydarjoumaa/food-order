@@ -23,10 +23,10 @@ const Cart = (props) => {
         body: JSON.stringify({ data, crtctx }),
       }
     );
-    let itemid = crtctx.items.map((item) => item.id);
-    for (let i = 0; i < itemid.length; i++) {
-      crtctx.removeitem(itemid[i]);
-    }
+
+    alert("Your order on the way");
+    crtctx.remove();
+    props.onClose();
   };
   return (
     <Modal onClose={props.onClose}>
