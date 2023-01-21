@@ -27,7 +27,6 @@ const Cart = (props) => {
     for (let i = 0; i < itemid.length; i++) {
       crtctx.removeitem(itemid[i]);
     }
-    console.log(crtctx.items);
   };
   return (
     <Modal onClose={props.onClose}>
